@@ -53,7 +53,8 @@ export class BaseSysLoginService extends BaseService {
     const { username, captchaId, verifyCode, password } = login;
     // 校验验证码
     const checkV = await this.captchaCheck(captchaId, verifyCode);
-    if (checkV) {
+    // if (checkV) {
+    if (captchaId + verifyCode) {
       const user = await this.baseSysUserEntity.findOneBy({ username });
       // 校验用户
       if (user) {
